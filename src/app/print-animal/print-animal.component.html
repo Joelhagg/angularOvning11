@@ -1,0 +1,5 @@
+
+<li>
+    {{ 'Djur: ' + animal.animal + '. Storlek: ' + animal.size + '. Föda: ' + animal.food + '. Ålder: ' + animal.age + '. Matad? ' + animal.isFed }}
+    <button *ngIf="!animal.isFed" (click)="feedAnimal()">Mata mej</button>
+</li>
