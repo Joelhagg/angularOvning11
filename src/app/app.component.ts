@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Animal } from './models/Animals';
+import { AnimalsService } from './services/animals.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,8 @@ export class AppComponent {
   title = 'ovning7';
 
   @Output() fed: EventEmitter<Animal> = new EventEmitter()
+
+  constructor(private service: AnimalsService) {}
 
   feedingAnimal(animal: boolean) {
 
@@ -23,4 +26,8 @@ export class AppComponent {
     new Animal('Tupp', 'Liten', 'Mask', 28, false)
   ]
 
-}
+  ngOnInit(): void {
+    this.allAnimals = this.service.getAnimals()
+  } 
+
+} 
